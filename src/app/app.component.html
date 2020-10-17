@@ -1,19 +1,42 @@
 <h1>To Do List</h1>
-<div class="start-creator">
-<fa name="cog" animation="spin"></fa>
+<div class="start-creator" style="height: 2rem">
+  <span style="float:right">
+    <fa name="plus fa-2x" (click)="isCreateMode = !isCreateMode">
+    </fa>
+  </span>
 </div>
 
 
 <div *ngIf="isCreateMode" class="task-creator">
+  <div class="input-section">
+    <label for="title-input">Title</label>
+    <input type="text" placeholder="Title" id="title-input" required [(ngModel)]="newTaskTitle">
+  </div>
 
+  <div class="input-section">
+    <label for="content-input">Content</label>
+    <textarea type="text" placeholder="Content" id="content-input" required [(ngModel)]="newTaskContent">
+  </textarea>
+  </div>
+
+  <div>
+    <button (click)="createTask()">Create task</button>
+  </div>
 
 </div>
 
 
 <div class="list-of-tasks">
 
-  <div class="single-task" *ngFor="let task of tasks">
+  <div class="single-task" *ngFor="let task of tasks; let i = index">
+
+
     <h2 class="title">{{task.getTitle()}}</h2>
+    <div class="edit-delete-menu">
+      <fa name="pencil" (click)="editTask(task)"></fa>
+      <fa name="trash" (click)="deleteTask(task,i)"></fa>
+    </div>
+
     <p class="task-title">{{task.getContent()}}</p>
   </div>
 
