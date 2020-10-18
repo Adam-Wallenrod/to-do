@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
   }
 
   editTask(id: number) {
-    const editedTask =  this.tasks.find(task => task.getId() === id);
+    const editedTask = this.tasks.find(task => task.getId() === id);
     editedTask.changeTitle(this.newTaskTitle);
     editedTask.changeContent(this.newTaskContent);
     this.clearTaskFormData();
@@ -52,6 +52,13 @@ export class AppComponent implements OnInit {
 
   deleteTask(taskToDelete: ModifiableTask, index: number) {
     this.tasks.splice(index, 1);
+  }
+
+
+  onClose() {
+    close('closing Modal');
+    this.isCreateMode = false;
+    this.editId = null;
   }
 
 }
