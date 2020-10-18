@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Task} from './task';
 import {ModifiableTask} from './modifiable-task';
 
 @Component({
@@ -12,6 +11,7 @@ export class AppComponent implements OnInit {
   testTask = new ModifiableTask('First task', 'This is my first task ever.');
   tasks: ModifiableTask[] = [];
   isCreateMode: boolean;
+  editId: number;
 
   newTaskTitle: string;
   newTaskContent: string;
@@ -25,18 +25,28 @@ export class AppComponent implements OnInit {
   createTask() {
     const newTask = new ModifiableTask(this.newTaskTitle, this.newTaskContent);
     this.tasks.push(newTask);
-    this.clearNewTaskData();
+    this.clearTaskFormData();
   }
 
 
-  clearNewTaskData() {
+  clearTaskFormData() {
     this.newTaskTitle = '';
     this.newTaskContent = '';
   }
 
 
-  editTask(taskToModify: ModifiableTask) {
+  startEditTask(taskToModify: ModifiableTask) {
+    this.newTaskTitle = taskToModify.getTitle();
+    this.newTaskContent = taskToModify.getContent();
+    this.editId = taskToModify.getId();
+  }
 
+  editTask(id: number) {
+    const editedTask =  this.tasks.find(task => task.getId() === id);
+    editedTask.changeTitle(this.newTaskTitle);
+    editedTask.changeContent(this.newTaskContent);
+    this.clearTaskFormData();
+    this.editId = null;
   }
 
 

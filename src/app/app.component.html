@@ -7,7 +7,7 @@
 </div>
 
 
-<div *ngIf="isCreateMode" class="task-creator">
+<div *ngIf="isCreateMode || editId" class="task-creator">
   <div class="input-section">
     <label for="title-input">Title</label>
     <input type="text" placeholder="Title" id="title-input" required [(ngModel)]="newTaskTitle">
@@ -20,7 +20,8 @@
   </div>
 
   <div>
-    <button (click)="createTask()">Create task</button>
+    <button *ngIf="isCreateMode" (click)="createTask()">Create task</button>
+    <button *ngIf="editId" (click)="editTask(editId)">Save changed task</button>
   </div>
 
 </div>
@@ -31,9 +32,9 @@
   <div class="single-task" *ngFor="let task of tasks; let i = index">
 
 
-    <h2 class="title">{{task.getTitle()}}</h2>
+    <h2 class="title">{{task.getTitle()}} id: {{task.getId()}}</h2>
     <div class="edit-delete-menu">
-      <fa name="pencil" (click)="editTask(task)"></fa>
+      <fa name="pencil" (click)="startEditTask(task)"></fa>
       <fa name="trash" (click)="deleteTask(task,i)"></fa>
     </div>
 
