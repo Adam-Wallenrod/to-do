@@ -56,7 +56,6 @@ export class AppComponent implements OnInit {
 
 
   onClose() {
-    close('closing Modal');
     this.isCreateMode = false;
     this.editId = null;
   }
