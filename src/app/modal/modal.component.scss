@@ -1,0 +1,26 @@
+.box {
+
+  position: relative;
+
+  .modal-close {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+
+    &::before, &::after {
+      background-color: darkgrey;
+    }
+
+
+    &:hover::before, &:hover::after {
+      background-color: white;
+    }
+
+  }
+
+
+
+}
+
+
+
