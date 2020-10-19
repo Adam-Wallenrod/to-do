@@ -32,14 +32,22 @@
   <div class="task-creator container">
 
     <div class="input-section">
-      <label for="title-input">Title</label>
-      <input type="text" placeholder="Title" id="title-input" required [(ngModel)]="newTaskTitle">
+      <div class="field">
+        <label for="title-input">Title</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Title" id="title-input" required [(ngModel)]="newTaskTitle">
+        </div>
+      </div>
     </div>
 
     <div class="input-section">
-      <label for="content-input">Content</label>
-      <textarea type="text" placeholder="Content" id="content-input" required [(ngModel)]="newTaskContent">
-  </textarea>
+      <div class="field">
+        <label for="content-input">Content</label>
+        <div class="control">
+          <textarea class="textarea" type="text" placeholder="Content" id="content-input" required [(ngModel)]="newTaskContent">
+          </textarea>
+        </div>
+      </div>
     </div>
 
     <div>
