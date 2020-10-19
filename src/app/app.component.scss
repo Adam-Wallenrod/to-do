@@ -14,3 +14,12 @@
 div.input-section {
   margin-bottom: 20px;
 }
+
+.edit-delete-menu {
+  float: right;
+
+  fa {
+    cursor: pointer;
+    margin: 0 5px;
+  }
+}
