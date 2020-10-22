@@ -1,13 +1,15 @@
 {
   "name": "to-do-app",
   "version": "0.0.0",
+  "main": "src/server.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "dev": "concurrently --kill-others \"npm run start\" \"node src/server.js\""
   },
   "private": true,
   "dependencies": {
@@ -22,8 +24,11 @@
     "angular-font-awesome": "^3.1.2",
     "bulma": "^0.9.1",
     "core-js": "^2.5.4",
+    "express": "^4.17.1",
     "font-awesome": "^4.7.0",
     "rxjs": "~6.3.3",
+    "sequelize": "^6.3.5",
+    "sqlite3": "^5.0.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },
@@ -32,10 +37,11 @@
     "@angular/cli": "~7.3.3",
     "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "~7.2.0",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
+    "concurrently": "^5.3.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.0.0",
