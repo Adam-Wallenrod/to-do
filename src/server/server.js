@@ -1,4 +1,7 @@
+import {sequelize} from './database';
 const express = require( "express" );
+
+
 const hostname = 'localhost';
 const port = 3000;
 const server = express();
@@ -14,3 +17,7 @@ server.listen(port, hostname,() => {
   // connect to the DB
   console.log(`Server running at http://${hostname}:${port}/`);
 });
+
+
+// initiate connection to db
+//const mysequelize = sequelize;
