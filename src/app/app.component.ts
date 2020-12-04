@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
   }
 
 
+
   createTask() {
     const newTask = new ModifiableTask(this.newTaskTitle, this.newTaskContent);
     this.tasks.push(newTask);
