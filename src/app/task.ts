@@ -8,7 +8,7 @@ export class Task {
 
 
   constructor(title: string, content: string) {
-    let a = 0;
+    const a = 0;
     this.title = title;
     this.content = content;
     this.timeStamp = this.getTimeTicks();
