@@ -15,10 +15,12 @@ export class AppComponent implements OnInit {
 
   newTaskTitle: string;
   newTaskContent: string;
+  a: number;
 
   ngOnInit() {
     this.tasks.push(this.testTask);
     console.log('testTask: ', this.testTask);
+    this.a = 7;
   }
 
 
